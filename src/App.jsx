@@ -20,7 +20,9 @@ const App = () => {
         <div className="relative z-0 bg-primary">
           <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
             <Navbar />
-            <Hero />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Hero />
+            </Suspense>
           </div>
           <About />
           <Experience />
@@ -29,7 +31,9 @@ const App = () => {
           {/* <Feedbacks /> */}
           <div className="relative z-0">
             <Contact />
-            <StarsCanvas />
+            <Suspense fallback={<div>Loading...</div>}>
+              <StarsCanvas />
+            </Suspense>
           </div>
         </div>
       </Suspense>

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
+// import { ComputersCanvas } from "./canvas";
+import React, { Suspense } from "react";
+
+const ComputersCanvas = React.lazy(() => import("./canvas/Computers"));
 
 const Hero = () => {
   return (
@@ -23,7 +26,10 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <ComputersCanvas />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ComputersCanvas />
+      </Suspense>
+
       <div className="absolute xs:bottom-0 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
